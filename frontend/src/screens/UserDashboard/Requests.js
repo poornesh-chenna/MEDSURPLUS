@@ -310,10 +310,10 @@ function Requests() {
                             className="mt-2 text-slate-500"
                             style={{ paddingTop: '5%' }}
                           >
-                            Order id :{item._id}
+                            Order id: {item._id}
                           </p>
-                          <p className="mt-2 ">Name :{item.name}</p>
-                          <p className="mt-2 ">Quantity :{item.quantity}</p>
+                          <p className="mt-2 ">Name: {item.name}</p>
+                          <p className="mt-2 ">Quantity: {item.quantity}</p>
                           <p className="mt-2 ">{item.expiry}</p>
                           <br></br>
                           <hr></hr>

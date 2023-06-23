@@ -14,7 +14,7 @@ const router = express.Router()
 router.post('/chatgpt', async (req, res) => {
   try {
     const query =
-      'For what purpose the medicine ' + req.body.medicineName + ' is used'
+      'what function is the drug ' + req.body.medicineName + ' is used for?'
     const resp = await api.sendMessage(query)
     res.status(200).send(resp.text)
   } catch (err) {
