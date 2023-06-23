@@ -6,6 +6,11 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import UserNavbar from './Navbar'
 import { Axios } from '../../utils/Axios'
 import { useSnackbar } from 'notistack'
+import mapboxgl from 'mapbox-gl'
+
+mapboxgl.workerClass =
+  // eslint-disable-next-line import/no-webpack-loader-syntax, import/no-unresolved
+  require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default
 
 function Maps() {
   const [userCoordinates, setuserCoordinates] = useState()
@@ -13,12 +18,12 @@ function Maps() {
   const [loading, setloading] = useState(false)
   const { enqueueSnackbar } = useSnackbar()
   useEffect(() => {
-    setloading(true)
     navigator.geolocation.getCurrentPosition(function (position) {
       setuserCoordinates({
         lat: position.coords.latitude,
         long: position.coords.longitude,
       })
+      console.log(position.coords.latitude, position.coords.longitude)
     })
     async function getCoords() {
       try {
@@ -30,10 +35,8 @@ function Maps() {
       }
     }
     getCoords()
-    setloading(false)
   }, [])
 
-  console.log(pharmacyCoordinates)
   return (
     <>
       <UserNavbar />

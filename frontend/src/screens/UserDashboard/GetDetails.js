@@ -14,7 +14,7 @@ function GetDetails() {
     try {
       setloading(true)
       const res = await Axios.post('/chatgpt', { medicineName })
-      console.log(res)
+
       setresponse(res.data)
       setloading(false)
     } catch (err) {
@@ -46,16 +46,18 @@ function GetDetails() {
             backgroundColor: 'var(--themecolor)',
           }}
         >
-          <input
-            style={{
-              borderRadius: '4px',
-              marginRight: '10px',
-              width: '25%',
-            }}
-            type="text"
-            placeholder="Enter name of the tablet"
-            onChange={(e) => setmedicineName(e.target.value)}
-          ></input>
+          <span style={{}}>
+            <input
+              style={{
+                borderRadius: '4px',
+                marginRight: '10px',
+                width: '300px',
+              }}
+              type="text"
+              placeholder="Enter name of the tablet"
+              onChange={(e) => setmedicineName(e.target.value)}
+            ></input>
+          </span>
 
           <div>
             <Button
@@ -83,7 +85,7 @@ function GetDetails() {
             textAlign: 'center',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: '',
+            justifyContent: 'center',
             alignItems: 'center',
             padding: '20px 0',
           }}
@@ -123,15 +125,16 @@ function GetDetails() {
                   style={{
                     backgroundColor: 'white',
                     height: '',
-                    width: '50%',
-                    padding: '50px',
+                    width: '24rem',
+                    padding: '30px',
                     borderRadius: '20px',
                     textAlign: 'left',
-                    fontSize: '20px',
+                    fontSize: '22px',
                     boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
+                    margin: '0 auto',
                   }}
                 >
-                  sda {response}
+                  {response}
                 </div>
               ) : (
                 <div style={{ color: 'white', fontSize: '42px' }}>

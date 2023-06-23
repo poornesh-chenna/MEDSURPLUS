@@ -14,7 +14,7 @@ function AcceptedRequests() {
       setloading(true)
       const res = await Axios.get('/acceptedRequests')
       setacceptedRequests(res.data)
-      console.log(res.data)
+
       // enqueueSnackbar(res.data, {
       //   variant: 'success',
       //   autoHideDuration: 1000,
@@ -33,17 +33,15 @@ function AcceptedRequests() {
   }, [])
   const handleDeliver = async (orderId) => {
     try {
-      console.log(orderId)
       setloadDeliver(true)
       const res = await Axios.patch('/pharmacy/delivered', { orderId })
       setloadDeliver(false)
-      console.log(res)
     } catch (err) {
       console.log(err.response.data.message)
       setloading(false)
       setloadDeliver(false)
-      getacceptedRequests()
     }
+    getacceptedRequests()
   }
 
   return (

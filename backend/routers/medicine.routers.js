@@ -4,10 +4,18 @@ import xlsx from 'xlsx'
 import { Medicine } from '../models/medicines.schema.js'
 import { upload } from '../middlewares/multer.js'
 import { ChatGPTAPI } from 'chatgpt'
+import dotenv from 'dotenv'
+dotenv.config()
 
-const api = new ChatGPTAPI({
-  apiKey: process.env.CHATGPT_APIKEY,
-})
+let api
+try {
+  console.log(process.env.OPENAI_API_KEY)
+  api = new ChatGPTAPI({
+    apiKey: process.env.OPENAI_API_KEY,
+  })
+} catch (err) {
+  console.log(err)
+}
 
 const router = express.Router()
 

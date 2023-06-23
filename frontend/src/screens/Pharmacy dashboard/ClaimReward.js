@@ -17,7 +17,7 @@ function ClaimReward() {
     try {
       setloadClaim(true)
       const res = await Axios.post('/claimReward', { code })
-      console.log(res.data)
+
       enqueueSnackbar(res.data.message, {
         variant: 'success',
         autoHideDuration: 1000,
@@ -33,7 +33,7 @@ function ClaimReward() {
     try {
       setloadSearch(true)
       const res = await Axios.post('/searchReward', { code })
-      console.log(res.data)
+
       setfoundReward(res.data)
       setloadSearch(false)
     } catch (err) {
@@ -65,7 +65,7 @@ function ClaimReward() {
             style={{
               borderRadius: '4px',
               marginRight: '10px',
-              width: '30%',
+              width: '',
             }}
             onChange={(e) => setcode(e.target.value)}
             type="text"
@@ -133,34 +133,44 @@ function ClaimReward() {
                 display: 'flex',
                 flexDirection: 'column',
                 textAlign: 'left',
-                justifyContent: 'center',
-                alignItems: 'center',
                 borderRadius: '10px',
-                padding: '18px',
-                width: '30%',
+                padding: '8px',
+                width: 'fit-content',
               }}
             >
               <p
                 style={{
                   marginBottom: '5px',
                   paddingTop: '10px',
-                  whiteSpace: 'nowrap',
                 }}
               >
-                Customer name : {foundReward.userId.username}
+                <span>Customer name : </span>
+                <span
+                  className="text-zinc-500"
+                  style={{ whiteSpace: 'nowrap' }}
+                >
+                  {foundReward.userId.username}
+                </span>
               </p>
-              <p style={{ marginBottom: '5px', whiteSpace: 'nowrap' }}>
-                Reward Earned : {foundReward.reward}
+              <p style={{ marginBottom: '5px', whiteSpace: 'normal' }}>
+                Reward Earned :{' '}
+                <span
+                  className="text-zinc-500"
+                  style={{ whiteSpace: 'nowrap' }}
+                >
+                  {foundReward.reward}
+                </span>
               </p>
-              <p style={{ marginBottom: '5px', whiteSpace: 'nowrap' }}>
-                Coupon code : {foundReward._id}
+              <p style={{ marginBottom: '5px', whiteSpace: '' }}>
+                Coupon code :{' '}
+                <span className="text-zinc-500">{foundReward._id}</span>
               </p>
               <Button
                 className="w-20"
                 style={{
                   backgroundColor: 'var(--lightBlue)',
                   height: '30px',
-                  marginTop: '18px',
+                  margin: '18px auto',
                 }}
                 onClick={(e) => {
                   e.preventDefault()
