@@ -2,9 +2,9 @@
 ### Sell leftover medicines
 
 
-- put forth a creative idea to reduce medical waste by building an application that allows people to sell back their unused medications to pharmacies.
-- Aim is to connect individuals and pharmacies where users can sell their unused medicines to pharmacies.
-- It also provides certain incentives to users upon selling their medications. 
+- An inventive proposal to combat medical waste by creating an application facilitating the resale of unused medications to local pharmacies. This innovative concept not only promotes sustainable disposal but also ensures valuable medications find a second use.
+  
+- Transforming surplus medicines into incentives, our app empowers users to sell to pharmacies, promoting responsible disposal. By rewarding contributions, we create a symbiotic relationship benefitting both users and pharmacies
 
   
 ## Installation
